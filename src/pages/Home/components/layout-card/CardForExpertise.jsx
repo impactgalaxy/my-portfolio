@@ -17,7 +17,7 @@ export default function CardForExpertise({
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <div>
+    <div key={sl}>
       <article className="p-5 lg:p-10 bg-deep-purple-700 rounded-md text-white">
         <p className="text-right">
           <span
@@ -63,9 +63,6 @@ export default function CardForExpertise({
               <div className="space-x-4 py-4">
                 <button className="btn rounded-3xl ">Get Started</button>
                 <button className="btn rounded-3xl btn-outline">E-mail</button>
-              </div>
-              <div>
-                <img src="https://source.unsplash.com/random/900×700" alt="" />
               </div>
             </div>
             {/*  */}

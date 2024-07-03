@@ -38,9 +38,9 @@ export default function MyExpertise() {
         <h1 className="text-3xl lg:text-7xl font-black">My-</h1>
         <h1 className="text-3xl lg:text-7xl font-black">Expertise</h1>
         <section className="space-y-4">
-          {expertise.map((exp, ind) => (
+          {expertise.map((exp) => (
             <CardForExpertise
-              key={ind}
+              key={exp.title}
               sl={exp.sl}
               title={exp.title}
               description={exp.description}
