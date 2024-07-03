@@ -15,7 +15,7 @@ export default function FeaturedWork() {
     {
       title: "Volunteer management system",
       description:
-        "This is a uncompromising project that is represent volunteer management system.",
+        "This is a project for volunteer management system. It's really fantastic website represent volunteer work and their responsibility.",
       liveLink: " https://assignment-11-3f45a.web.app",
       clientSideCode:
         "https://github.com/impactgalaxy/assignment-11-client-volunteer",
@@ -23,31 +23,35 @@ export default function FeaturedWork() {
         "https://github.com/impactgalaxy/assignment-11-server-volunteer",
     },
     {
-      title: "Abc",
-      description: "This is abc",
-      liveLink: "Http://abc",
-      clientSideCode: "this is client side",
-      serverSideCode: "This is server side",
+      title: "Northern tour",
+      description:
+        "It's my first fullStack website. This website represent tourism spot and manage tourist who are come from another country.",
+      liveLink: "https://assignment-10-c334a.web.app",
+      clientSideCode:
+        "https://github.com/impactgalaxy/assignment-10-client-tourism",
+      serverSideCode:
+        "https://github.com/impactgalaxy/assignment-10-server-tourism",
     },
   ];
   return (
     <div className="flex items-center justify-center flex-col">
       <div className="p-5 lg:p-12 w-full md:w-3/4 text-center">
         <p>
-          <span className="animate__animated animate__bounceInUp text-3xl lg:text-8xl font-bold animate__delay-2s">
+          <span className="animate__animated animate__bounceInUp text-3xl lg:text-7xl font-black animate__delay-2s">
             FEATURED
           </span>
         </p>
         <p>
-          <span className="animate__animated animate__bounceInUp text-3xl lg:text-8xl font-bold animate__delay-3s">
+          <span className="animate__animated animate__bounceInUp text-3xl lg:text-7xl font-black animate__delay-3s">
             WORK
           </span>
         </p>
       </div>
 
-      <article className="grid grid-cols-1 lg:grid-cols-2 gap-3 place-items-center">
+      <article className="flex items-center justify-center gap-4 flex-wrap">
         {props?.map((prop) => (
           <CardDefault
+            key={prop.title}
             title={prop.title}
             description={prop.description}
             link={prop.liveLink}

@@ -16,7 +16,6 @@ import {
   useDisclosure,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 
 export function CardDefault({ title, description, link, client, server }) {
   const { isOpen, onOpen, onClose } = useDisclosure();

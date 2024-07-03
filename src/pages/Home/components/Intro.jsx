@@ -17,7 +17,7 @@ export default function Intro() {
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-anchor-placement="top-center"
-            className="text-3xl lg:text-8xl font-bold">
+            className="text-3xl lg:text-7xl font-black">
             NUR
           </span>
         </p>
@@ -30,7 +30,7 @@ export default function Intro() {
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-anchor-placement="top-center"
-            className="text-3xl lg:text-8xl font-bold">
+            className="text-3xl lg:text-7xl font-black">
             MOHAMMAD
           </span>
         </p>
@@ -43,7 +43,7 @@ export default function Intro() {
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-anchor-placement="top-center"
-            className="text-3xl lg:text-8xl font-bold">
+            className="text-3xl lg:text-7xl font-black">
             PALASH
           </span>
         </p>
