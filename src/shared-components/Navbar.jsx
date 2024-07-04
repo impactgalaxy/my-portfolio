@@ -35,6 +35,27 @@ export default function Navbar() {
     console.log(data);
   };
 
+  const handleDownload = () => {
+    fetch("https://my-portfolio-server-rho-tawny.vercel.app/download-pdf")
+      .then((response) => {
+        if (response.ok) {
+          return response.blob();
+        }
+        throw new Error("Network response is not ok");
+      })
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "resume_of_palash.pdf");
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      })
+      .catch((error) => {
+        console.log("Failed to fetch", error);
+      });
+  };
   return (
     <div>
       <div className="navbar bg-base-100 px-4 border-b-2">
@@ -69,7 +90,9 @@ export default function Navbar() {
           <SlEnvolope className="text-2xl hover:rotate-45 transition-transform cursor-pointer" />
         </div>
         <div className="navbar-end">
-          <a className="btn btn-outline ">RESUME</a>
+          <button className="btn btn-outline" onClick={handleDownload}>
+            RESUME
+          </button>
         </div>
       </div>
       <Modal

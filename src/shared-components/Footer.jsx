@@ -1,7 +1,24 @@
+import { FaLinkedinIn } from "react-icons/fa6";
+import { FaFacebookF } from "react-icons/fa";
 export default function Footer() {
   return (
-    <div className="p-5 md:p-8 lg:p-10 flex items-center justify-center gap-4 flex-col">
-      <p className="text-2xl font-bold">Follow me on</p>
-    </div>
+    <footer className="footer bg-neutral text-neutral-content p-10">
+      <aside>
+        <p className="text-3xl">Follow me on</p>
+      </aside>
+      <nav>
+        <h6 className="footer-title">Social</h6>
+        <div className="grid grid-flow-col gap-4">
+          <a target="_blank" href="https://www.facebook.com/pisacoder">
+            <FaFacebookF className="text-2xl" />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/nur-mohammad-palash">
+            <FaLinkedinIn className="text-2xl" />
+          </a>
+        </div>
+      </nav>
+    </footer>
   );
 }

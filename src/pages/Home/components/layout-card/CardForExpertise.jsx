@@ -68,13 +68,6 @@ export default function CardForExpertise({
             {/*  */}
           </ModalBody>
           <ModalFooter />
-
-          {/* <ModalFooter className="space-x-5">
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter> */}
         </ModalContent>
       </Modal>
     </div>
