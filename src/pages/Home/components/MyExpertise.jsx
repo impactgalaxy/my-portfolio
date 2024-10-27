@@ -40,7 +40,6 @@ export default function MyExpertise() {
         <section className="space-y-4">
           {expertise.map((exp) => (
             <CardForExpertise
-              key={exp.title}
               sl={exp.sl}
               title={exp.title}
               description={exp.description}

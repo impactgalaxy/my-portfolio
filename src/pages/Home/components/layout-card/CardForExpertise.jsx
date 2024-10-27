@@ -17,8 +17,10 @@ export default function CardForExpertise({
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <div key={sl}>
-      <article className="p-5 lg:p-10 bg-deep-purple-700 rounded-md text-white">
+    <div key={title}>
+      <article
+        className="p-5 lg:p-10 bg-deep-purple-700 rounded-md text-white"
+        key={sl}>
         <p className="text-right">
           <span
             onClick={onOpen}
