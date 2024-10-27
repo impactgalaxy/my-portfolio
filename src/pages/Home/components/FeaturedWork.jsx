@@ -35,7 +35,7 @@ export default function FeaturedWork() {
   ];
   return (
     <div className="flex items-center justify-center flex-col">
-      <div className="p-5 lg:p-12 w-full md:w-3/4 text-center">
+      <div className="p-5 lg:p-12 w-full md:w-3/4 text-center text-base-content">
         <p>
           <span className="animate__animated animate__bounceInUp text-3xl lg:text-7xl font-black animate__delay-2s">
             FEATURED
