@@ -5,6 +5,7 @@ import {
   FormHelperText,
   FormLabel,
   Input,
+  Link,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -21,6 +22,7 @@ import { useForm } from "react-hook-form";
 import { SlEnvolope } from "react-icons/sl";
 import useUserState from "../authProvider/useUserState";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [theme, setTheme] = useState(false);
@@ -67,6 +69,8 @@ export default function Navbar() {
   };
 
   const onSubmit = async (data) => {
+    data.sendingTime = new Date();
+
     try {
       const response = await axios.post(
         "http://localhost:5000/users_message",
@@ -248,6 +252,9 @@ export default function Navbar() {
           </div>
         </div>
         <div className="space-x-4">
+          <NavLink to="/dashboard" className="font-bold text-lg">
+            Dashboard
+          </NavLink>
           <div className="navbar-center hidden lg:flex" onClick={onOpen}>
             <SlEnvolope className="text-3xl hover:rotate-12 hover:scale-110 duration-500 transition-transform cursor-pointer" />
           </div>
@@ -353,16 +360,16 @@ export default function Navbar() {
           <ModalBody className="space-x-5 p-10">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <FormControl>
+                <FormLabel>Name</FormLabel>
+                <Input type="text" {...register("name")} />
+              </FormControl>
+              <FormControl>
                 <FormLabel>Email address</FormLabel>
                 <Input required type="email" {...register("email")} />
 
                 <FormHelperText className="accent-light-blue-300">
                   <p>We'll never share your email.</p>
                 </FormHelperText>
-              </FormControl>
-              <FormControl>
-                <FormLabel>Name</FormLabel>
-                <Input type="text" {...register("name")} />
               </FormControl>
               <FormControl>
                 <FormLabel>Message</FormLabel>
