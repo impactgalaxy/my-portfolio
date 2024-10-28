@@ -21,19 +21,22 @@ export function CardDefault({ title, description, link, client, server }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Card className="mt-6 w-96 group">
+      <Card className="mt-6 w-96 group dark:bg-blue-gray-900">
         <CardHeader color="blue-gray" className="relative h-56">
           <img
             src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
             alt="card-image"
-            className="transition-transform group-hover:scale-110 motion-reduce:transform-none"
+            className="transition-transform duration-1000 group-hover:scale-110 motion-reduce:transform-none"
           />
         </CardHeader>
         <CardBody>
-          <Typography variant="h5" color="blue-gray" className="mb-2">
+          <Typography
+            variant="h5"
+            color="blue-gray"
+            className="mb-2 dark:text-gray-300">
             {title}
           </Typography>
-          <Typography>{description}</Typography>
+          <Typography className="dark:text-gray-500">{description}</Typography>
         </CardBody>
         <CardFooter className="pt-0 flex items-center justify-between">
           <a target="_blank" href={link}>

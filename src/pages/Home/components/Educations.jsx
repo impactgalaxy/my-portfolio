@@ -48,9 +48,11 @@ export default function Educations() {
   ];
 
   return (
-    <div className="container mx-auto bg-blue-gray-100 p-5 flex">
+    <div className="dark:bg-blue-gray-800 p-5 flex">
       <div className="w-3/12">
-        <h1 className="font-black md:text-xl sticky top-10 ">EDUCATIONS</h1>
+        <h1 className="font-black md:text-xl sticky top-24 dark:text-white ">
+          EDUCATIONS
+        </h1>
       </div>
       <div className="w-full px-5 *:border-b-2 lg:*:p-5 last:border-b-0">
         {educations.map((edu) => (

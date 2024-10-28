@@ -8,4 +8,5 @@ module.exports = withMT({
   daisyui: {
     themes: ["light", "dark", "cupcake", "business"],
   },
+  darkMode: 'selector',
 });

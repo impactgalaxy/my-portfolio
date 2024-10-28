@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function Dashboard() {
   const [messages, setMessage] = useState([]);
   const [users, setUsers] = useState([]);
-  console.log(messages, users);
+
   useEffect(() => {
     const getData = async () => {
       try {

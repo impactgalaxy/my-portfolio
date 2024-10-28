@@ -1,11 +1,9 @@
 import {
   Button,
   FormControl,
-  FormErrorMessage,
   FormHelperText,
   FormLabel,
   Input,
-  Link,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -17,9 +15,14 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
+
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { SlEnvolope } from "react-icons/sl";
+import { BsLinkedin } from "react-icons/bs";
+import { FaFacebook } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+
 import useUserState from "../authProvider/useUserState";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
@@ -179,15 +182,15 @@ export default function Navbar() {
     const getValue = localStorage.getItem("theme");
     JSON.parse(getValue) ? setTheme(true) : setTheme(false);
     theme
-      ? document.querySelector("html").setAttribute("data-theme", "dark")
-      : document.querySelector("html").setAttribute("data-theme", "light");
+      ? document.querySelector("html").setAttribute("class", "dark")
+      : document.querySelector("html").setAttribute("class", "light");
   }, [theme]);
   return (
     <div>
-      <div className="navbar bg-base-100 px-4 border-b-2">
-        <div className="navbar-start">
+      <div className="navbar dark:bg-[#1d232a] px-4 border-b-2">
+        <div className="z-10 fixed top-3 left-4">
           <div
-            className="avatar"
+            className="avatar "
             onClick={() => document.getElementById("my_modal_5").showModal()}>
             <div className="w-16 rounded-full hover:ring ring-offset-2 hover:transition-shadow cursor-pointer duration-1000">
               <img src="https://lh3.googleusercontent.com/a/ACg8ocJ8SFj5C5hGXVQVhHMbZBNTo5JPCFNMV_w4eTkDiEHwGPSTWt3t=s96-c" />
@@ -239,6 +242,36 @@ export default function Navbar() {
                       </div>
                     )}
                   </div>
+                  {/* social links */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2 text-xl">
+                      <BsLinkedin />
+                      <a
+                        className="block"
+                        target="_blank"
+                        href="www.linkedin.com/in/nur-mohammad-palash">
+                        View linkedin
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-2 text-xl">
+                      <FaGithub />{" "}
+                      <a
+                        className="block"
+                        target="_blank"
+                        href="https://github.com/impactgalaxy?tab=repositories">
+                        View github
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-2 text-xl">
+                      <FaFacebook />{" "}
+                      <a
+                        className="block"
+                        target="_blank"
+                        href="https://www.facebook.com/pisacoder">
+                        View github
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 <div className="modal-action">
                   <form method="dialog">
@@ -251,12 +284,15 @@ export default function Navbar() {
             {/* <div className="absolute size-80 bg-blue-gray-500 top-1/2 left-1/2"></div> */}
           </div>
         </div>
+        <div className="navbar-start"></div>
         <div className="space-x-4">
-          <NavLink to="/dashboard" className="font-bold text-lg">
+          <NavLink
+            to="/dashboard"
+            className="font-bold text-lg dark:text-white">
             Dashboard
           </NavLink>
           <div className="navbar-center hidden lg:flex" onClick={onOpen}>
-            <SlEnvolope className="text-3xl hover:rotate-12 hover:scale-110 duration-500 transition-transform cursor-pointer" />
+            <SlEnvolope className="text-3xl dark:text-white hover:rotate-12 hover:scale-110 duration-500 transition-transform cursor-pointer" />
           </div>
           <label className="grid cursor-pointer place-items-center">
             <input
@@ -296,7 +332,9 @@ export default function Navbar() {
         </div>
         {user && (
           <div className="navbar-end">
-            <button className="btn btn-outline mr-3" onClick={handleDownload}>
+            <button
+              className="btn btn-outline mr-3 dark:text-white"
+              onClick={handleDownload}>
               RESUME
             </button>
             <div

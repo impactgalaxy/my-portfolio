@@ -12,9 +12,11 @@ export default function Contacts() {
     },
   ];
   return (
-    <div className="container mx-auto p-5 flex bg-blue-gray-200">
+    <div className="p-5 flex dark:bg-blue-gray-200">
       <div className="w-3/12">
-        <h1 className="font-black md:text-xl sticky top-10 ">CONTACTS</h1>
+        <h1 className="font-black md:text-xl sticky top-24 dark:text-white">
+          CONTACTS
+        </h1>
       </div>
       <div className="w-full px-5">
         <div className="flex items-center justify-center p-10 flex-col gap-10">

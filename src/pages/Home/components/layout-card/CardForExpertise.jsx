@@ -19,7 +19,7 @@ export default function CardForExpertise({
   return (
     <div key={title}>
       <article
-        className="p-5 lg:p-10 bg-deep-purple-700 rounded-md text-white"
+        className="p-5 lg:p-10 bg-deep-purple-700 rounded-md first-of-type:rounded-t-none text-white"
         key={sl}>
         <p className="text-right">
           <span
