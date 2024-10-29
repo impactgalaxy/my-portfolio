@@ -185,10 +185,40 @@ export default function Navbar() {
       ? document.querySelector("html").setAttribute("class", "dark")
       : document.querySelector("html").setAttribute("class", "light");
   }, [theme]);
+  // start bubble
+  const body = document.body;
+  const profile = document.getElementById("profile");
+
+  let initialLeft, initialTop;
+
+  function handleMove(e) {
+    const left = e.clientX - initialLeft;
+    const top = e.clientY - initialTop;
+
+    profile.style.left = `${left}px`;
+    profile.style.top = `${top}px`;
+  }
+
+  function down(e) {
+    if (!initialTop && !initialTop) {
+      initialLeft = e.clientX;
+      initialTop = e.clientY;
+    }
+    body.addEventListener("mousemove", handleMove);
+  }
+
+  function up() {
+    body.removeEventListener("mousemove", handleMove);
+  }
+
   return (
     <div>
       <div className="navbar dark:bg-[#1d232a] px-4 border-b-2">
-        <div className="z-10 fixed top-3 left-4">
+        <div
+          className=" fixed z-10 top-3 left-4 "
+          id="profile"
+          onMouseUp={up}
+          onMouseDown={down}>
           <div
             className="avatar "
             onClick={() => document.getElementById("my_modal_5").showModal()}>
@@ -249,7 +279,7 @@ export default function Navbar() {
                       <a
                         className="block"
                         target="_blank"
-                        href="www.linkedin.com/in/nur-mohammad-palash">
+                        href="https://www.linkedin.com/in/nur-mohammad-palash">
                         View linkedin
                       </a>
                     </div>
