@@ -185,42 +185,41 @@ export default function Navbar() {
       ? document.querySelector("html").setAttribute("class", "dark")
       : document.querySelector("html").setAttribute("class", "light");
   }, [theme]);
+
   // start bubble
-  const body = document.body;
-  const profile = document.getElementById("profile");
+  // const profile = document.getElementById("profile");
 
-  let initialLeft, initialTop;
+  // let initialLeft, initialTop;
 
-  function handleMove(e) {
-    const left = e.clientX - initialLeft;
-    const top = e.clientY - initialTop;
+  // function handleMove(e) {
+  //   const left = e.clientX - initialLeft;
+  //   const top = e.clientY - initialTop;
 
-    profile.style.left = `${left}px`;
-    profile.style.top = `${top}px`;
-  }
+  //   profile.style.left = `${left}px`;
+  //   profile.style.top = `${top}px`;
+  // }
 
-  function down(e) {
-    if (!initialTop && !initialTop) {
-      initialLeft = e.clientX;
-      initialTop = e.clientY;
-    }
-    body.addEventListener("mousemove", handleMove);
-  }
+  // function down(e) {
+  //   if (!initialTop && !initialTop) {
+  //     initialLeft = e.clientX;
+  //     initialTop = e.clientY;
+  //   }
+  //   document.addEventListener("mousemove", handleMove);
+  // }
 
-  function up() {
-    body.removeEventListener("mousemove", handleMove);
-  }
+  // useEffect(() => {
+  //   document.removeEventListener("mousemove", handleMove);
+  // }, []);
+  // function up() {
+  //   document.removeEventListener("mousemove", handleMove);
+  // }
 
   return (
     <div>
       <div className="navbar dark:bg-[#1d232a] px-4 border-b-2">
-        <div
-          className=" fixed z-10 top-3 left-4 "
-          id="profile"
-          onMouseUp={up}
-          onMouseDown={down}>
+        <div className=" fixed z-10 top-3 left-4 select-none">
           <div
-            className="avatar "
+            className="avatar"
             onClick={() => document.getElementById("my_modal_5").showModal()}>
             <div className="w-16 rounded-full hover:ring ring-offset-2 hover:transition-shadow cursor-pointer duration-1000">
               <img src="https://lh3.googleusercontent.com/a/ACg8ocJ8SFj5C5hGXVQVhHMbZBNTo5JPCFNMV_w4eTkDiEHwGPSTWt3t=s96-c" />

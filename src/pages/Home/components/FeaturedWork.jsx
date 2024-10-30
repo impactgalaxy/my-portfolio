@@ -54,8 +54,8 @@ export default function FeaturedWork() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1000 100"
-        fill="#2a384d"
-        className="">
+        fill="#fff"
+        className="bg-gradient-to-r from-cyan-500 to-blue-500">
         <path d="M0 0v4l396.3 84a500.1 500.1 0 0 0 207.4 0L1000 4V0H0Z"></path>
       </svg>
 

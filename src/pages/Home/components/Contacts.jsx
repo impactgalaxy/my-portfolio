@@ -1,9 +1,34 @@
-import { Button } from "@chakra-ui/react";
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  useDisclosure,
+} from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useState } from "react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
+import { useForm } from "react-hook-form";
+
 export default function Contacts() {
   const [display, setDisplay] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { isLoading },
+  } = useForm();
   const contacts = [
     {
       media_name: "Facebook",
@@ -15,6 +40,13 @@ export default function Contacts() {
     },
   ];
 
+  const handleSendFeedback = (values) => {
+    console.log(values);
+  };
+  const closeAndClearForm = () => {
+    onClose();
+    reset();
+  };
   return (
     <div className={`p-5 flex bg-white/45 dark:bg-blue-gray-900 `}>
       <div className="w-3/12">
@@ -55,8 +87,49 @@ export default function Contacts() {
           </span>
           <h1>Any feedback?</h1>
           <p>Please let me know your valuable feedback</p>
-          <button className="btn mt-3">Send Feedback</button>
+          <button onClick={onOpen} className="btn mt-3">
+            Send Feedback
+          </button>
         </div>
+        <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Send me your valuable feedback</ModalHeader>
+
+            <ModalBody>
+              <form
+                className="space-y-5"
+                onSubmit={handleSubmit(handleSendFeedback)}>
+                <FormControl isRequired>
+                  <FormLabel>First name</FormLabel>
+                  <Input placeholder="First name" {...register("firstName")} />
+                </FormControl>
+                <FormControl isRequired>
+                  <FormLabel>Last name</FormLabel>
+                  <Input placeholder="First name" {...register("lastName")} />
+                </FormControl>
+                <FormControl isRequired>
+                  <FormLabel>Your message</FormLabel>
+                  <Textarea
+                    placeholder="Here is a sample placeholder"
+                    {...register("message")}
+                  />
+                </FormControl>
+                <ModalFooter>
+                  <Button variant="ghost" mr={4} onClick={closeAndClearForm}>
+                    Close
+                  </Button>
+                  <Button
+                    type="submit"
+                    isLoading={isLoading}
+                    colorScheme="blue">
+                    Send
+                  </Button>
+                </ModalFooter>
+              </form>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
       </div>
     </div>
   );
