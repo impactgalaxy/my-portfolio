@@ -6,7 +6,6 @@ import {
   Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import { useState } from "react";
 import {
@@ -19,6 +18,7 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
+import { FaMessage } from "react-icons/fa6";
 
 export default function Contacts() {
   const [display, setDisplay] = useState(false);
@@ -48,7 +48,7 @@ export default function Contacts() {
     reset();
   };
   return (
-    <div className={`p-5 flex bg-white/45 dark:bg-blue-gray-900 `}>
+    <div className={`p-5 flex bg-white/45 dark:bg-blue-gray-900 relative`}>
       <div className="w-3/12">
         <h1 className="font-black md:text-xl sticky top-24 dark:text-white">
           CONTACTS
@@ -75,23 +75,7 @@ export default function Contacts() {
             </div>
           ))}
         </div>
-        <div
-          data-aos="fade-left"
-          className={`md:w-1/2 w-full relative bg-white/45 dark:bg-[#1f2937] dark:text-white font-medium p-5 ${
-            display ? "hidden" : "block"
-          }`}>
-          <span
-            onClick={() => setDisplay(true)}
-            className="absolute right-4 font-black cursor-pointer hover:bg-blue-gray-600 px-3 py-2 rounded top-1">
-            X
-          </span>
-          <h1>Any feedback?</h1>
-          <p>Please let me know your valuable feedback</p>
-          <button onClick={onOpen} className="btn mt-3">
-            Send Feedback
-          </button>
-        </div>
-        <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false}>
+        {/* <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Send me your valuable feedback</ModalHeader>
@@ -129,7 +113,7 @@ export default function Contacts() {
               </form>
             </ModalBody>
           </ModalContent>
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );

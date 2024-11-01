@@ -1,3 +1,4 @@
+import Messenger from "../../shared-components/messenger/Messenger";
 import Awards from "./components/Awards";
 import Contacts from "./components/Contacts";
 import Educations from "./components/Educations";
@@ -18,6 +19,7 @@ export default function Home() {
       {/* <FavoriteStack /> */}
       <Awards />
       <Contacts />
+      <Messenger />
     </div>
   );
 }

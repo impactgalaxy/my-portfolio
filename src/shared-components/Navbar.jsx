@@ -42,7 +42,6 @@ export default function Navbar() {
   } = useForm();
 
   const handleGoogleLogin = async () => {
-    console.log("clicked");
     try {
       const response = await loginByGoogle();
       try {
@@ -185,34 +184,6 @@ export default function Navbar() {
       ? document.querySelector("html").setAttribute("class", "dark")
       : document.querySelector("html").setAttribute("class", "light");
   }, [theme]);
-
-  // start bubble
-  // const profile = document.getElementById("profile");
-
-  // let initialLeft, initialTop;
-
-  // function handleMove(e) {
-  //   const left = e.clientX - initialLeft;
-  //   const top = e.clientY - initialTop;
-
-  //   profile.style.left = `${left}px`;
-  //   profile.style.top = `${top}px`;
-  // }
-
-  // function down(e) {
-  //   if (!initialTop && !initialTop) {
-  //     initialLeft = e.clientX;
-  //     initialTop = e.clientY;
-  //   }
-  //   document.addEventListener("mousemove", handleMove);
-  // }
-
-  // useEffect(() => {
-  //   document.removeEventListener("mousemove", handleMove);
-  // }, []);
-  // function up() {
-  //   document.removeEventListener("mousemove", handleMove);
-  // }
 
   return (
     <div>

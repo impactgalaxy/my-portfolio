@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   const [messages, setMessage] = useState([]);
   const [users, setUsers] = useState([]);
+  const [messengerMsg, setMessengerMsg] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -14,9 +16,13 @@ export default function Dashboard() {
         const users = await axios.get(
           "http://localhost:5000/registered_users_of_palash_portfolio"
         );
-        console.log(users_message.data);
+        const messengerMsg = await axios.get(
+          "http://localhost:5000/messengerMessage"
+        );
+
         setMessage(users_message.data);
         setUsers(users.data);
+        setMessengerMsg(messengerMsg.data);
       } catch (error) {
         console.log(error?.message);
       }
@@ -25,7 +31,16 @@ export default function Dashboard() {
   }, []);
   return (
     <>
-      {users.length == 0 || messages.length == 0 ? (
+      <div className=" border">
+        {messengerMsg.map((msg) => (
+          <Link
+            className="block mb-3"
+            to={`/dashboard/replay_to/${msg.email}/${msg._id}`}>
+            {msg._id}
+          </Link>
+        ))}
+      </div>
+      {/* {users.length == 0 || messages.length == 0 ? (
         <h1 className="text-center text-2xl p-2">Please wait</h1>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 p-2">
@@ -73,7 +88,7 @@ export default function Dashboard() {
             </h1>
             <div className="overflow-x-auto">
               <table className="table">
-                {/* head */}
+                
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -100,7 +115,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 }
